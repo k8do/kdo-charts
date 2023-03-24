@@ -11,4 +11,4 @@ spec:
       targetPort: http
       protocol: TCP
   selector:
-    {{- include "mssql.selectorLabels" . | nindent 4 }}
+    {{- include "mssql.labels" . | nindent 4 }}
