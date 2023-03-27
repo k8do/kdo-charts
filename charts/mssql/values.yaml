@@ -4,7 +4,7 @@
 
 #nameOverride: mssql
 
-replicas: 3
+replicas: 1
 
 
 image:

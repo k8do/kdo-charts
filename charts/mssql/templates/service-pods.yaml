@@ -9,8 +9,8 @@ spec:
     statefulset.kubernetes.io/pod-name: {{ include "mssql.fullname" . }}-0
   ports:
   - protocol: TCP
-    port: 1433
-    targetPort: 1433
+    port: {{ .Values.service.port }}
+    targetPort: {{ .Values.containers.ports.containerPort}}
 ---
 apiVersion: v1
 kind: Service
@@ -23,8 +23,8 @@ spec:
     statefulset.kubernetes.io/pod-name: {{ include "mssql.fullname" . }}-1
   ports:
   - protocol: TCP
-    port: 1433
-    targetPort: 1433
+    port: {{ .Values.service.port }}
+    targetPort: {{ .Values.containers.ports.containerPort}}
 ---
 apiVersion: v1
 kind: Service
@@ -37,5 +37,5 @@ spec:
     statefulset.kubernetes.io/pod-name: {{ include "mssql.fullname" . }}-2
   ports:
   - protocol: TCP
-    port: 1433
-    targetPort: 1433
+    port: {{ .Values.service.port }}
+    targetPort: {{ .Values.containers.ports.containerPort}}
