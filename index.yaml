@@ -5,6 +5,18 @@ entries:
       catalog.cattle.io/hidden: "true"
     apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-03-27T14:56:44.404833658Z"
+    description: A Helm chart for Kubernetes. Modified by/for KDo community.
+    digest: bd4d5d3992ce3b93e3600d314c09288285eb4911c3960e214db6e3fd35221074
+    name: mssql
+    type: application
+    urls:
+    - https://github.com/k8do/kdo-charts/releases/download/mssql-0.1.5/mssql-0.1.5.tgz
+    version: 0.1.5
+  - annotations:
+      catalog.cattle.io/hidden: "true"
+    apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-03-27T11:59:55.518207551Z"
     description: A Helm chart for Kubernetes. Modified by/for KDo community.
     digest: f0af02132dfff33eb9919a6c8e3b161d7d5029f533b74fc5c62572af037bff44
@@ -37,4 +49,4 @@ entries:
     urls:
     - https://github.com/k8do/kdo-charts/releases/download/mssql-0.1.2/mssql-0.1.2.tgz
     version: 0.1.2
-generated: "2023-03-27T11:59:55.518226752Z"
+generated: "2023-03-27T14:56:44.404854959Z"
