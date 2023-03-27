@@ -8,7 +8,8 @@ spec:
   type: LoadBalancer
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.port }}
       protocol: TCP
   selector:
-    {{- include "mssql.labels" . | nindent 4 }}
+    {{- include "mssql.selectorLabels" . | nindent 4 }}
+    
