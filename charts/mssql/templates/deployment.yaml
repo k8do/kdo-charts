@@ -19,6 +19,16 @@ spec:
       labels:
         {{- include "mssql.selectorLabels" . | nindent 8 }}
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -48,6 +58,8 @@ spec:
              mountPath: "/var/opt/mssql"
            - name: mssql-config
              mountPath: /var/opt/config
+      nodeSelector:
+        kubernetes.io/os: linux
       volumes:        
       - name: mssql-config
         configMap:
