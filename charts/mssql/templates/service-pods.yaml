@@ -1,4 +1,4 @@
-{{- if empty .Values.pod0_service.enabled }}
+{{- if .Values.pod0_service.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -13,7 +13,7 @@ spec:
     port: {{ .Values.service.port }}
     targetPort: {{ .Values.containers.ports.containerPort}}
 {{- end }}
-{{- if empty .Values.pod1_service.enabled }}
+{{- if .Values.pod1_service.enabled }}
 ---
 apiVersion: v1
 kind: Service
@@ -29,7 +29,7 @@ spec:
     port: {{ .Values.service.port }}
     targetPort: {{ .Values.containers.ports.containerPort}}
 {{- end }}
-{{- if empty .Values.pod2_service.enabled }}
+{{- if .Values.pod2_service.enabled }}
 ---
 apiVersion: v1
 kind: Service
