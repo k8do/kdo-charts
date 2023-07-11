@@ -1,3 +1,4 @@
+{{- if empty .Values.mirror0_service.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,6 +10,8 @@ spec:
   - protocol: TCP
     port: 5022
     targetPort: 5022
+{{- end }}    
+{{- if empty .Values.mirror1_service.enabled }}
 ---
 apiVersion: v1
 kind: Service
@@ -21,6 +24,8 @@ spec:
   - protocol: TCP
     port: 5022
     targetPort: 5022
+{{- end }}
+{{- if empty .Values.mirror2_service.enabled }}
 ---
 apiVersion: v1
 kind: Service
@@ -33,3 +38,4 @@ spec:
   - protocol: TCP
     port: 5022
     targetPort: 5022
+{{- end }}

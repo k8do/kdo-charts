@@ -1,9 +1,10 @@
+{{- if empty .Values.pod0_service.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "mssql.fullname" . }}-lb-0
 spec:
-  type: LoadBalancer
+  type: {{ .Values.pod0_service.type }}
   externalTrafficPolicy: Local
   selector:
     statefulset.kubernetes.io/pod-name: {{ include "mssql.fullname" . }}-0
@@ -11,13 +12,15 @@ spec:
   - protocol: TCP
     port: {{ .Values.service.port }}
     targetPort: {{ .Values.containers.ports.containerPort}}
+{{- end }}
+{{- if empty .Values.pod1_service.enabled }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "mssql.fullname" . }}-lb-1
 spec:
-  type: LoadBalancer
+  type: {{ .Values.pod1_service.type }}
   externalTrafficPolicy: Local
   selector:
     statefulset.kubernetes.io/pod-name: {{ include "mssql.fullname" . }}-1
@@ -25,13 +28,15 @@ spec:
   - protocol: TCP
     port: {{ .Values.service.port }}
     targetPort: {{ .Values.containers.ports.containerPort}}
+{{- end }}
+{{- if empty .Values.pod2_service.enabled }}
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "mssql.fullname" . }}-lb-2
 spec:
-  type: LoadBalancer
+  type: {{ .Values.pod2_service.type }}
   externalTrafficPolicy: Local
   selector:
     statefulset.kubernetes.io/pod-name: {{ include "mssql.fullname" . }}-2
@@ -39,3 +44,4 @@ spec:
   - protocol: TCP
     port: {{ .Values.service.port }}
     targetPort: {{ .Values.containers.ports.containerPort}}
+{{- end }}
